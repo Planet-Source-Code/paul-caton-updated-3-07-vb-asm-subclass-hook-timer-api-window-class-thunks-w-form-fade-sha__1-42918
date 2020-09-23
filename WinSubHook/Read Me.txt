@@ -1,0 +1,45 @@
+First register the type library
+	Type Lib\WinSubHook.tlb
+
+	One way to do this is to run the following project...
+	Type Lib\RegTlb.vbp
+
+Check out the sample projects
+	Samples\ApiWindow\prjApiWindow.vbp
+	Samples\Hooker\prjHooker.vbp
+	Samples\Shadow\prjShadow.vbp
+	Samples\ShadowCtl\prjShadowCtl.vbp
+	Samples\Subclass\prjSubclass.vbp
+	Samples\Timer\prjTimer.vbp
+
+If you need a WinSubHook thunk in your project just add the appropriate file...
+	Thunks\cHook.cls	- Windows hooks
+	Thunks\cSubclass.cls	- Window subclasser
+	Thunks\cTimer.cls	- Formless timer
+	Thunks\cWindow.cls	- API Window
+		
+Add a reference to this Type Library...
+	"Window/Subclass/Hook/Timer interface 1.5"
+
+Or from the Project\References dialog 'Browse' to this file
+	Type Lib\WinSubHook.tlb
+
+Note: Type libraries are NOT required to execute a compiled application.
+	
+In a Form, Class or UserControl in your project implement the appropriate interface
+	Implements WinSubHook.iHook 
+	Implements WinSubHook.iSubclass
+	Implements WinSubHook.iTimer
+	Implements WinSubHook.iWindow	
+	
+The assembler models used can be viewed here...
+	Asm\Hook.asm 
+	Asm\Subclass.asm
+	Asm\Timer.asm
+	Asm\Window.asm
+
+If you wish to experiment with the included assembler you can download all the tools required for free from http://www.masm32.com
+
+regards -Paul
+
+Paul_Caton@hotmail.com
